@@ -1,0 +1,141 @@
+<!-- WIKIDOC CONFIG
+--filename user_manual.pdf
+--page-size A4
+--margin-top 2cm
+--margin-left 2cm
+--margin-bottom 2cm
+--margin-right 2cm
+--footer-font-name Verdana
+--footer-font-size 9
+--footer-spacing 10
+--footer-right [page]
+--javascript-delay 2000
+WIKIDOC CONFIG -->
+
+<!-- WIKIDOC HTMLHEAD
+<html>
+<head>
+<STYLE type='text/css'>
+	html { font-family: Verdana, Geneva, sans-serif; font-size: 20px; }
+	.covertitle { padding-top: 40%; text-align: right; font-size: 40px; }
+	.generated { font-size: 12px; }
+
+	table { border-collapse: collapse;  margin: 1em auto 1em auto; width: 90%;}	
+	table { border: 1px solid #ccc; }
+
+	tr td:first-child { border-right: 1px solid #ccc; }
+	tr.topborder td { border-top: 1px solid #ccc; }
+	table td { font-family: Verdana,Geneva,sans-serif; font-size: 15pt; vertical-align: top; padding: 5px; }
+
+	h1 { page-break-before: always; font-size: 30px; }
+	h2 { margin-top: 3ex; font-size: 24px; }
+	h3 { margin-top: 3ex; font-size: 20px}
+
+	span.inline {display: inline;}
+
+	table.datafifo td, table.combinedtime td { border:1px solid grey; text-align: center;}
+	table.datafifo td:first-child { text-align: left; }
+	table.datafifo tr:first-child td { font-weight: bold; }
+
+	.green {background-color: #73e600;}
+	.yellow {background-color: yellow;}
+	.breakbefore { page-break-before: always; }
+	.breakafter { page-break-after: always; }
+	.wiki_only { display: none; }
+
+	img { padding: 5px; }
+</STYLE>
+<script type="text/x-mathjax-config"> 
+    MathJax.Hub.Config({ 
+        "HTML-CSS": { scale: 200, linebreaks: { automatic: false } }, 
+        SVG: { linebreaks: { automatic:false } } 
+        });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+WIKIDOC HTMLHEAD -->
+
+<!-- WIKIDOC HTMLFOOT
+</body></html>
+WIKIDOC HTMLFOOT -->
+
+<!-- WIKIDOC COVER
+<div class='covertitle'><b>Cover title</b> User Manual<br><span class='generated'>generated from github wiki: ###_WIKIDOC_GENDATE_###</span></div>
+<div><img src="" align=right></div>
+WIKIDOC COVER -->
+
+<!-- WIKIDOC TOCXSL
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="2.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:outline="http://wkhtmltopdf.org/outline"
+                xmlns="http://www.w3.org/1999/xhtml">
+  <xsl:output doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+              doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+              indent="yes" />
+  <xsl:template match="outline:outline">
+    <html>
+      <head>
+        <title>Contents</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style>
+          h1 {
+            text-align: left;
+            font-size: 26.6px;
+            font-family: verdana;
+          }
+          div {border-bottom: 1px dashed rgb(200,200,200);}
+          span {float: right;}
+          li {list-style: none;}
+          ul {
+            font-size: 13px;
+            font-family: verdana;
+          }
+          ul ul {font-size: 85%; }
+          ul {padding-left: 0em; }
+          ul ul {padding-left: 1em;}
+          a {text-decoration:none; color: black;}
+          ul.toplevel li { margin-bottom: 1em;  }
+          ul.sublevels li { margin-bottom: 0em;  }
+          ul li:last-child { margin-bottom: 1em; }
+        </style>
+      </head>
+      <body>
+        <h1>Contents</h1>
+        <ul class="toplevel"><xsl:apply-templates select="outline:item/outline:item"/></ul>
+      </body>
+    </html>
+  </xsl:template>
+  <xsl:template match="outline:item">
+     <li>
+      <xsl:if test="(@title!='') and (@title!='Contents')">
+        <div>
+          <a>
+            <xsl:if test="@link">
+              <xsl:attribute name="href"><xsl:value-of select="@link"/></xsl:attribute>
+            </xsl:if>
+            <xsl:if test="@backLink">
+              <xsl:attribute name="name"><xsl:value-of select="@backLink"/></xsl:attribute>
+            </xsl:if>
+            <xsl:value-of select="@title" /> 
+          </a>
+          <span> <xsl:value-of select="@page" /> </span>
+        </div>
+      </xsl:if>
+      <ul class="sublevels">
+        <xsl:comment>added to prevent self-closing tags in QtXmlPatterns</xsl:comment>
+        <xsl:apply-templates select="outline:item"/>
+      </ul>
+    </li>
+  </xsl:template>
+</xsl:stylesheet>
+WIKIDOC TOCXSL -->
+
+<!-- end of config section -->
+
+<!-- WIKIDOC PDFONLY
+<h1>Preface</h1>
+WIKIDOC PDFONLY -->
